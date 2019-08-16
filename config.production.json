@@ -1,0 +1,24 @@
+{
+  "url": "http://localhost:10000",
+  "server": {
+    "port": 10000,
+    "host": "0.0.0.0"
+  },
+  "database": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": "/var/lib/ghost/content/data/ghost.db"
+    }
+  },
+  "mail": {
+    "transport": "Direct"
+  },
+  "logging": {
+    "transports": [
+      "stdout"
+    ]
+  },
+  "paths": {
+    "contentPath": "/var/lib/ghost/content"
+  }
+}
