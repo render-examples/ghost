@@ -1,5 +1,5 @@
 # see versions at https://hub.docker.com/_/ghost
-FROM ghost:2.28.0
+FROM ghost:3.2.0
 
 WORKDIR $GHOST_INSTALL
 COPY . .
