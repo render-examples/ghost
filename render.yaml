@@ -1,0 +1,8 @@
+services:
+- type: web
+  name: ghost
+  env: docker
+  disk:
+    name: ghost
+    mountPath: /var/lib/ghost/content
+    sizeGB: 10 #Feel free to change this to suit your needs.
