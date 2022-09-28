@@ -26,7 +26,13 @@ services:
 - type: pserv
   name: ghost-mysql
   repo: https://github.com/render-examples/mysql
+  plan: standard
+  env: docker
   autoDeploy: false
+  disk:
+    name: mysql
+    mountPath: /var/lib/mysql
+    sizeGB: 10
   envVars:
   - fromGroup: ghost-group
 
