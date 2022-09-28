@@ -21,17 +21,17 @@ services:
       fromService:
         name: ghost-mysql
         type: pserv
-        property: MYSQL_DATABASE
+        envVarKey: MYSQL_DATABASE
     - key: database__connection__user
       fromService:
         name: ghost-mysql
         type: pserv
-        property: MYSQL_USER
+        envVarKey: MYSQL_USER
     - key: database__connection__password
       fromService:
         name: ghost-mysql
         type: pserv
-        property: MYSQL_PASSWORD
+        envVarKey: MYSQL_PASSWORD
 
 - type: pserv
   name: ghost-mysql
