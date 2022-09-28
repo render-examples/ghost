@@ -44,11 +44,6 @@ services:
     mountPath: /var/lib/mysql
     sizeGB: 10
   envVars:
-  - fromGroup: ghost-group
-
-envVarGroups:
-- name: ghost-group
-  envVars:
   - key: MYSQL_DATABASE
     value: ghost
   - key: MYSQL_USER
