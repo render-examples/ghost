@@ -7,3 +7,37 @@ services:
     name: ghost
     mountPath: /var/lib/ghost/content
     sizeGB: 10 #Feel free to change this to suit your needs.
+  envVars:
+    - key: database__client
+      value: mysql # Replace with 'sqlite'
+    - key: database__connection__host
+      fromService:
+        name: ghost-mysql
+        type: pserv
+        property: host
+    - key: database__connection__port
+      fromService:
+        name: ghost-mysql
+        type: pserv
+        property: port
+    - key: database__connection__port
+      value: 3306
+
+- type: pserv
+  name: ghost-mysql
+  repo: https://github.com/render-examples/mysql
+  autoDeploy: false
+  envVars:
+  - fromGroup: ghost-group
+
+envVarGroups:
+- name: ghost-group
+  envVars:
+  - key: MYSQL_DATABASE
+    value: ghost
+  - key: MYSQL_USER
+    value: ghost-db-user
+  - key: MYSQL_PASSWORD
+    generateValue: true
+  - key: MYSQL_ROOT_PASSWORD
+    generateValue: true
