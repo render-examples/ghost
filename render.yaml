@@ -6,22 +6,32 @@ services:
   disk:
     name: ghost
     mountPath: /var/lib/ghost/content
-    sizeGB: 10 #Feel free to change this to suit your needs.
+    sizeGB: 10
   envVars:
     - key: database__client
-      value: mysql # Replace with 'sqlite'
+      value: mysql # Can be replaced with 'sqlite'
     - key: database__connection__host
       fromService:
         name: ghost-mysql
         type: pserv
         property: host
     - key: database__connection__port
+      value: 3306
+    - key: database__connection__database
       fromService:
         name: ghost-mysql
         type: pserv
-        property: port
-    - key: database__connection__port
-      value: 3306
+        property: MYSQL_DATABASE
+    - key: database__connection__user
+      fromService:
+        name: ghost-mysql
+        type: pserv
+        property: MYSQL_USER
+    - key: database__connection__password
+      fromService:
+        name: ghost-mysql
+        type: pserv
+        property: MYSQL_PASSWORD
 
 - type: pserv
   name: ghost-mysql
