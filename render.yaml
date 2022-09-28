@@ -36,7 +36,7 @@ services:
 - type: pserv
   name: ghost-mysql
   repo: https://github.com/render-examples/mysql
-  plan: standard
+  plan: starter
   env: docker
   autoDeploy: false
   disk:
