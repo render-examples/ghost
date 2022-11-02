@@ -19,6 +19,11 @@ services:
       value: ghostdb
     - key: database__connection__user
       value: mysql
+    - key: database__connection__password
+      fromService:
+        type: pserv
+        name: mysql
+        envVarKey: MYSQL_PASSWORD
 
 - type: pserv
   name: mysql
