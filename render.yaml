@@ -31,7 +31,8 @@ services:
   name: mysql
   plan: starter
   env: docker
-  repo: https://github.com/render-examples/mysql
+  dockerfilePath: ./mysql/Dockerfile
+  dockerContext: ./mysql
   region: frankfurt
   autoDeploy: false
   disk:
